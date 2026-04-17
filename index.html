@@ -140,8 +140,10 @@
             padding: 20px;
             z-index: 99999; /* 提高z-index */
             position: relative;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
-        
+
         .stage.active {
             display: flex;
             animation: fadeIn 0.8s ease forwards;
@@ -681,29 +683,60 @@
         }
 
         @media (max-width: 768px) {
+            .stage {
+                padding: 15px;
+                min-height: 100vh;
+                justify-content: flex-start;
+                padding-top: 60px;
+            }
+
+            .stage h1 {
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+            }
+
             .card {
-                padding: 34px 22px;
+                padding: 24px 18px;
                 width: min(94vw, 560px);
+                max-width: 94vw;
+            }
+
+            .card h2 {
+                font-size: 1.6rem;
+            }
+
+            .card p {
+                font-size: 1rem;
+                line-height: 1.7;
             }
 
             .card-actions {
                 flex-direction: column;
+                gap: 12px;
+            }
+
+            .card-action {
+                padding: 14px 16px;
+            }
+
+            .card-action-icon {
+                font-size: 2.2rem;
             }
 
             .fireworks-launcher {
-                right: 14px;
-                width: 62px;
-                height: 62px;
-                border-radius: 20px;
+                right: 10px;
+                width: 58px;
+                height: 58px;
+                border-radius: 18px;
             }
 
             .fireworks-launcher-icon {
-                font-size: 1.28rem;
+                font-size: 1.2rem;
             }
 
             .fireworks-launcher-text {
-                font-size: 0.72rem;
-                letter-spacing: 0.04rem;
+                font-size: 0.7rem;
+                letter-spacing: 0.02rem;
             }
 
             .prank-eye.left {
@@ -716,6 +749,34 @@
 
             .cosmic-kicker {
                 letter-spacing: 0.28rem;
+            }
+
+            .bubble-container {
+                gap: 15px;
+                margin-top: 20px;
+            }
+
+            .bubble-wrapper {
+                width: 70px;
+                height: 70px;
+            }
+
+            .bubble {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+
+            .bubble-word {
+                font-size: 2rem;
+            }
+
+            .gift-box {
+                font-size: 6rem;
+            }
+
+            .click-hint {
+                font-size: 1.2rem;
             }
         }
 
