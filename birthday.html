@@ -1,0 +1,2237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎈 for小卢同学 🎈</title>
+    <!-- 引入可爱的中文字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            /* 初夏的清爽马卡龙渐变背景 */
+            background: linear-gradient(120deg, #e6f7ff 0%, #fff9e6 30%, #e6f7f0 60%, #fff0f5 100%);
+            font-family: 'ZCOOL KuaiLe', cursive, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #5d5d5d;
+            position: relative;
+        }
+
+        /* 背景流星/萤火虫 */
+        .firefly {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #fffacd;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffdf00, 0 0 20px #ffdf00;
+            animation: float-firefly 5s infinite ease-in-out alternate;
+            opacity: 0.6;
+            z-index: 1; /* 降低z-index */
+        }
+
+        @keyframes float-firefly {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -30px) scale(1.5); }
+            100% { transform: translate(-20px, -60px) scale(1); }
+        }
+
+        /* 夏天元素：气泡 */
+        .summer-bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: floatBackgroundBubble 6s infinite ease-in-out;
+            z-index: 1; /* 降低z-index */
+            pointer-events: none; /* 允许点击穿透 */
+        }
+
+        /* 夏天元素：阳光光斑 */
+        .sun-spot {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 200, 0.6);
+            box-shadow: 0 0 20px rgba(255, 255, 100, 0.8);
+            animation: floatSun 8s infinite ease-in-out;
+            z-index: 1; /* 降低z-index */
+            pointer-events: none; /* 允许点击穿透 */
+        }
+
+        /* 夏天元素：飘动的小花 */
+        .flower {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: floatFlower 10s infinite ease-in-out;
+            z-index: 1; /* 降低z-index */
+            pointer-events: none; /* 允许点击穿透 */
+        }
+
+        /* 夏天元素：小云朵 */
+        .cloud {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatCloud 15s infinite ease-in-out;
+            z-index: 1; /* 降低z-index */
+            pointer-events: none; /* 允许点击穿透 */
+        }
+
+        /* 夏天元素：蝴蝶 */
+        .butterfly {
+            position: absolute;
+            font-size: 1.2rem;
+            animation: flyButterfly 12s infinite ease-in-out;
+            z-index: 1; /* 降低z-index */
+            pointer-events: none; /* 允许点击穿透 */
+        }
+
+        @keyframes floatBackgroundBubble {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            50% { transform: translateY(50vh) scale(1); opacity: 0.8; }
+            100% { transform: translateY(-20px) scale(0.5); opacity: 0; }
+        }
+
+        @keyframes floatSun {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+            25% { transform: translate(30px, -20px) rotate(5deg); opacity: 0.8; }
+            50% { transform: translate(10px, -40px) rotate(0deg); opacity: 1; }
+            75% { transform: translate(-20px, -20px) rotate(-5deg); opacity: 0.8; }
+        }
+
+        @keyframes floatFlower {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.7; }
+            25% { transform: translate(40px, -30px) rotate(10deg); opacity: 1; }
+            50% { transform: translate(20px, -60px) rotate(0deg); opacity: 0.8; }
+            75% { transform: translate(-30px, -30px) rotate(-10deg); opacity: 1; }
+        }
+
+        @keyframes floatCloud {
+            0% { transform: translateX(-100px) translateY(50px); opacity: 0.6; }
+            100% { transform: translateX(100vw) translateY(30px); opacity: 0.6; }
+        }
+
+        @keyframes flyButterfly {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            10% { transform: translate(50px, -20px) rotate(10deg); opacity: 1; }
+            25% { transform: translate(100px, -40px) rotate(-5deg); opacity: 0.8; }
+            50% { transform: translate(150px, -20px) rotate(10deg); opacity: 1; }
+            75% { transform: translate(200px, -30px) rotate(-5deg); opacity: 0.8; }
+            90% { transform: translate(250px, -10px) rotate(5deg); opacity: 0.5; }
+        }
+
+        /* 点击效果动画 */
+        @keyframes clickEffect {
+            0% { transform: scale(0) translate(0, 0); opacity: 1; }
+            50% { transform: scale(1.5) translate(10px, -10px); opacity: 0.8; }
+            100% { transform: scale(2) translate(20px, -20px); opacity: 0; }
+        }
+
+        .stage {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            z-index: 99999; /* 提高z-index */
+            position: relative;
+        }
+        
+        .stage.active {
+            display: flex;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* 阶段一：戳泡泡 */
+        .bubble-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 400px;
+            z-index: 999; /* 设为最高 */
+            position: relative;
+            margin-top: 30px;
+            min-height: 250px;
+            pointer-events: auto; /* 强制接收点击 */
+        }
+
+        .bubble-wrapper {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* 提高z-index */
+            pointer-events: auto; /* 允许点击穿透 */
+        }
+
+        .bubble {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            cursor: pointer !important; /* 强制显示手型 */
+            box-shadow: inset 0 0 15px rgba(255,255,255,0.8), 0 5px 15px rgba(0,0,0,0.1);
+            animation: floatBubble 3s infinite ease-in-out alternate;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 99999; /* 提高z-index */
+            pointer-events: auto !important; /* 强制元素接收事件 */
+        }
+
+        .bubble::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 15px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none; /* 允许点击穿透 */
+        }
+
+        .bubble:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .bubble,
+        .bubble-wrapper {
+            touch-action: manipulation;
+        }
+
+        .bubble.popped {
+            transform: scale(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .bubble-word {
+            position: absolute;
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(255, 107, 157, 0.5);
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        .bubble-word.show {
+            opacity: 1;
+            transform: scale(1) translateY(-20px);
+            animation: floatWord 2s infinite alternate;
+        }
+
+        @keyframes floatBubble {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+
+        @keyframes floatWord {
+            0% { transform: translateY(-20px); }
+            100% { transform: translateY(-30px); }
+        }
+
+        /* 阶段二：拆礼物 */
+        .gift-box {
+            font-size: 8rem;
+            cursor: pointer;
+            animation: shake 2s infinite;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+            transition: transform 0.2s;
+            margin-bottom: 10px;
+        }
+
+        .gift-box:hover {
+            animation: none;
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .click-hint {
+            font-size: 1.5rem;
+            color: white;
+            background: rgba(255, 107, 157, 0.6);
+            padding: 5px 20px;
+            border-radius: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30%, 50%, 70%, 90% { transform: rotate(-10deg); }
+            20%, 40%, 60%, 80% { transform: rotate(10deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        /* 阶段三：生日贺卡 */
+        .card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 246, 251, 0.92));
+            backdrop-filter: blur(14px);
+            padding: 42px 34px;
+            border-radius: 34px;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.14), inset 0 0 0 1px rgba(255,255,255,0.75);
+            max-width: 92vw;
+            width: 580px;
+            position: relative;
+            border: 1px solid rgba(255, 173, 201, 0.55);
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top right, rgba(255, 205, 228, 0.7), transparent 32%),
+                radial-gradient(circle at bottom left, rgba(160, 231, 229, 0.5), transparent 28%);
+            pointer-events: none;
+        }
+
+        .card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card h2 {
+            color: #ff5f93;
+            font-size: 2.25rem;
+            margin-bottom: 18px;
+        }
+
+        .card p {
+            font-size: 1.18rem;
+            line-height: 1.85;
+            margin-bottom: 10px;
+            color: #60576d;
+        }
+
+        .highlight {
+            color: #ff7f8f;
+            font-size: 1.45rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            align-items: stretch;
+        }
+
+        .card-action {
+            flex: 1;
+            min-width: 0;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 18px 18px 16px;
+            border-radius: 26px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+        }
+
+        .card-action:hover {
+            transform: translateY(-4px) scale(1.01);
+        }
+
+        .cake-btn {
+            background: linear-gradient(135deg, #ff8fb1 0%, #ffb88c 100%);
+            animation: pulseCake 2.4s infinite;
+        }
+
+        .fireworks-launcher {
+            position: fixed;
+            right: 22px;
+            top: 50%;
+            width: 74px;
+            height: 74px;
+            transform: translateY(-50%);
+            border: 1px solid rgba(159, 218, 255, 0.42);
+            border-radius: 24px;
+            background:
+                linear-gradient(145deg, rgba(9, 17, 41, 0.95) 0%, rgba(20, 52, 116, 0.92) 56%, rgba(24, 129, 166, 0.9) 100%);
+            color: #f4fbff;
+            box-shadow:
+                0 18px 42px rgba(8, 14, 40, 0.42),
+                inset 0 0 24px rgba(111, 193, 255, 0.22);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            cursor: pointer;
+            z-index: 230000;
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.28s ease, opacity 0.28s ease, box-shadow 0.28s ease;
+            backdrop-filter: blur(12px);
+        }
+
+        .fireworks-launcher.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .fireworks-launcher:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow:
+                0 22px 52px rgba(10, 17, 50, 0.5),
+                inset 0 0 28px rgba(125, 210, 255, 0.28);
+        }
+
+        .fireworks-launcher::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+            pointer-events: none;
+        }
+
+        .fireworks-launcher-icon {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .fireworks-launcher-text {
+            font-size: 0.82rem;
+            letter-spacing: 0.08rem;
+        }
+
+        .card-action-icon {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+        }
+
+        .cake-text {
+            font-size: 1.14rem;
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+
+        .card-action-note {
+            margin-top: 6px;
+            font-size: 0.92rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        @keyframes pulseCake {
+            0% { box-shadow: 0 12px 28px rgba(255, 137, 177, 0.28); }
+            50% { box-shadow: 0 18px 36px rgba(255, 137, 177, 0.45); }
+            100% { box-shadow: 0 12px 28px rgba(255, 137, 177, 0.28); }
+        }
+
+        @keyframes fireworkButtonGlow {
+            0% { box-shadow: 0 12px 28px rgba(37, 78, 159, 0.24); }
+            50% { box-shadow: 0 18px 40px rgba(38, 180, 209, 0.38); }
+            100% { box-shadow: 0 12px 28px rgba(37, 78, 159, 0.24); }
+        }
+
+        #fx-canvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 220000;
+        }
+
+        #stage-4 {
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(87, 136, 255, 0.16), transparent 24%),
+                radial-gradient(circle at 80% 15%, rgba(153, 99, 255, 0.18), transparent 26%),
+                radial-gradient(circle at 50% 80%, rgba(29, 198, 255, 0.1), transparent 30%),
+                linear-gradient(180deg, #02040d 0%, #050713 55%, #010208 100%);
+        }
+
+        #cake-canvas {
+            cursor: grab;
+            touch-action: none;
+        }
+
+        #cake-canvas.dragging {
+            cursor: grabbing;
+        }
+
+        .cosmic-copy {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .cosmic-kicker {
+            letter-spacing: 0.5rem;
+            font-size: 0.82rem;
+            color: rgba(178, 214, 255, 0.72);
+            margin-bottom: 10px;
+        }
+
+        #mic-hint,
+        #wish-text {
+            pointer-events: none;
+        }
+
+        #mic-hint {
+            line-height: 1.7;
+        }
+
+        .prank-scene {
+            position: relative;
+            width: min(840px, 92vw);
+            min-height: min(72vh, 680px);
+            border-radius: 34px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 146, 189, 0.35), transparent 22%),
+                radial-gradient(circle at 75% 18%, rgba(125, 176, 255, 0.28), transparent 24%),
+                linear-gradient(135deg, #fff1f4 0%, #ffe6ef 28%, #e9f1ff 100%);
+            box-shadow: 0 26px 80px rgba(41, 42, 70, 0.18);
+        }
+
+        .prank-scene::before,
+        .prank-scene::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(12px);
+            opacity: 0.55;
+        }
+
+        .prank-scene::before {
+            width: 210px;
+            height: 210px;
+            left: -40px;
+            bottom: -40px;
+            background: rgba(255, 148, 175, 0.35);
+        }
+
+        .prank-scene::after {
+            width: 180px;
+            height: 180px;
+            right: -20px;
+            top: -30px;
+            background: rgba(82, 137, 255, 0.22);
+        }
+
+        .prank-card {
+            position: relative;
+            z-index: 2;
+            margin: auto;
+            width: min(560px, 86vw);
+            padding: 34px 28px;
+            border-radius: 28px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.76);
+            border: 1px solid rgba(255,255,255,0.75);
+            box-shadow: 0 16px 38px rgba(55, 67, 99, 0.12);
+            backdrop-filter: blur(10px);
+        }
+
+        .prank-overline {
+            font-size: 0.9rem;
+            letter-spacing: 0.32rem;
+            text-transform: uppercase;
+            color: #8499d0;
+            margin-bottom: 16px;
+        }
+
+        .prank-card h1 {
+            color: #ff5b8d;
+            text-shadow: none;
+            margin-bottom: 14px;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        .prank-subtext {
+            font-size: 1.12rem;
+            color: #5f6284;
+            line-height: 1.8;
+        }
+
+        .prank-return {
+            margin-top: 18px;
+            font-size: 0.96rem;
+            color: #7f86a5;
+        }
+
+        .prank-bad-elements {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .prank-chip {
+            position: absolute;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #ff6f96;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 26px rgba(255, 127, 159, 0.14);
+            animation: prankFloat 6s ease-in-out infinite;
+            animation-delay: var(--delay, 0s);
+        }
+
+        .prank-eye {
+            position: absolute;
+            width: 96px;
+            height: 44px;
+            border-radius: 999px;
+            background: rgba(32, 42, 78, 0.92);
+            top: 18%;
+            box-shadow: 0 18px 36px rgba(33, 36, 68, 0.16);
+            animation: prankBlink 4.6s ease-in-out infinite;
+        }
+
+        .prank-eye.left {
+            left: 18%;
+        }
+
+        .prank-eye.right {
+            right: 18%;
+        }
+
+        .prank-eye::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff7c2;
+            top: 12px;
+            left: 22px;
+            box-shadow: 34px 0 0 #fff7c2;
+            animation: prankPupil 5.5s ease-in-out infinite;
+        }
+
+        .prank-spark {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff7ca5, #6ba7ff);
+            filter: blur(0.5px);
+            opacity: 0.8;
+            animation: prankOrbit 7.2s linear infinite;
+        }
+
+        .prank-spark.s1 { top: 20%; left: 28%; animation-delay: -1s; }
+        .prank-spark.s2 { top: 66%; left: 18%; animation-delay: -3s; }
+        .prank-spark.s3 { top: 26%; right: 24%; animation-delay: -5s; }
+        .prank-spark.s4 { bottom: 18%; right: 20%; animation-delay: -2s; }
+
+        @keyframes prankFloat {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-14px) rotate(2deg); }
+        }
+
+        @keyframes prankBlink {
+            0%, 44%, 52%, 100% { transform: scaleY(1); }
+            48% { transform: scaleY(0.12); }
+        }
+
+        @keyframes prankPupil {
+            0%, 100% { transform: translateX(0); }
+            30% { transform: translateX(8px); }
+            70% { transform: translateX(-6px); }
+        }
+
+        @keyframes prankOrbit {
+            0% { transform: translate(0, 0) scale(0.7); opacity: 0.45; }
+            50% { transform: translate(18px, -24px) scale(1.2); opacity: 0.9; }
+            100% { transform: translate(0, -46px) scale(0.7); opacity: 0.35; }
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 34px 22px;
+                width: min(94vw, 560px);
+            }
+
+            .card-actions {
+                flex-direction: column;
+            }
+
+            .fireworks-launcher {
+                right: 14px;
+                width: 62px;
+                height: 62px;
+                border-radius: 20px;
+            }
+
+            .fireworks-launcher-icon {
+                font-size: 1.28rem;
+            }
+
+            .fireworks-launcher-text {
+                font-size: 0.72rem;
+                letter-spacing: 0.04rem;
+            }
+
+            .prank-eye.left {
+                left: 10%;
+            }
+
+            .prank-eye.right {
+                right: 10%;
+            }
+
+            .cosmic-kicker {
+                letter-spacing: 0.28rem;
+            }
+        }
+
+        /* 音乐控制 - 唱片样式 */
+        .music-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #333 25%, transparent 25%, transparent 75%, #333 75%, #333),
+                        linear-gradient(135deg, #333 25%, transparent 25%, transparent 75%, #333 75%, #333),
+                        radial-gradient(circle at center, #222 30%, #444 31%, #444 35%, #222 36%, #222 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 
+                0 4px 15px rgba(0,0,0,0.3),
+                inset 0 2px 10px rgba(255,255,255,0.1);
+            z-index: 100;
+            transition: box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .music-btn::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #ff6b9d, #b19cd9);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .music-btn:hover {
+            box-shadow: 
+                0 6px 20px rgba(0,0,0,0.4),
+                inset 0 2px 10px rgba(255,255,255,0.2);
+        }
+
+        .music-btn.playing {
+            animation: recordSpin 3s linear infinite !important;
+        }
+
+        @keyframes recordSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 背景萤火虫 -->
+    <div id="fireflies" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></div>
+    <canvas id="fx-canvas"></canvas>
+
+    <!-- 音乐控制 -->
+    <div class="music-btn" id="musicBtn" onclick="toggleMusic()" style="position: fixed; top: 10px; right: 10px !important; left: auto !important; display: flex; justify-content: center; align-items: center;">🎵</div>
+    <audio id="bgm" src="https://m801.music.126.net/20240320100000/js/summer_vibe.mp3" loop></audio>
+
+    <!-- 阶段一：戳泡泡互动 -->
+    <div id="stage-1" class="stage active">
+        <h1 style="position:relative; z-index: 10;">六月初夏的微风送来了几个泡泡<br>快戳破它们看看里面藏了什么！👆</h1>
+        <div class="bubble-container" id="bubbles">
+            <!-- 静态写入，杜绝动态生成导致的消失问题，加入直接的 onclick -->
+            <div class="bubble-wrapper">
+                <div class="bubble" style="animation-delay: 0s;" onclick="popBubble(this, event)">🍉</div>
+                <div class="bubble-word">祝</div>
+            </div>
+            <div class="bubble-wrapper">
+                <div class="bubble" style="animation-delay: 0.2s;" onclick="popBubble(this, event)">🍦</div>
+                <div class="bubble-word">你</div>
+            </div>
+            <div class="bubble-wrapper">
+                <div class="bubble" style="animation-delay: 0.4s;" onclick="popBubble(this, event)">🌻</div>
+                <div class="bubble-word">生</div>
+            </div>
+            <div class="bubble-wrapper">
+                <div class="bubble" style="animation-delay: 0.6s;" onclick="popBubble(this, event)">🍓</div>
+                <div class="bubble-word">日</div>
+            </div>
+            <div class="bubble-wrapper">
+                <div class="bubble" style="animation-delay: 0.8s;" onclick="popBubble(this, event)">🎐</div>
+                <div class="bubble-word">快</div>
+            </div>
+            <div class="bubble-wrapper">
+                <div class="bubble" style="animation-delay: 1.0s;" onclick="popBubble(this, event)">🦋</div>
+                <div class="bubble-word">乐</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 阶段二：拆礼物 -->
+    <div id="stage-2" class="stage">
+        <h1>叮咚！<br>有一份六月专属的甜美快递 💌</h1>
+        <div class="gift-box" onclick="openGift()">🎁</div>
+        <div class="click-hint">点我拆开</div>
+    </div>
+
+    <!-- 阶段三：贺卡展示 -->
+    <div id="stage-3" class="stage">
+        <div class="card">
+            <h2>✨ 祝可爱的你，生日快乐 ✨</h2>
+            <p>六月的初夏刚好，微风刚好，</p>
+            <p>阳光也刚好，就像现在的你一样，</p>
+            <p>一切都是<span class="highlight">最美好的模样</span>！🌻</p>
+            <p>愿你在新的一岁里：</p>
+            <p>吃不胖 🍉、睡得香 🌙、烦恼全跑光 🦋</p>
+            <p>每天都能拥有冰淇淋般的甜蜜心情~ 🍦</p>
+            <div class="card-actions">
+                <div class="card-action cake-btn" onclick="handleCakeButtonClick(event)">
+                    <div class="card-action-icon">🎂</div>
+                    <div class="cake-text" id="cake-btn-text">不要点这里，什么都没有</div>
+                    <div class="card-action-note">真的什么都没有吗？你再戳一下试试看。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="fireworks-launcher" class="fireworks-launcher" type="button" onclick="launchBirthdayFireworks(event)" aria-label="放烟花">
+        <span class="fireworks-launcher-icon">🎆</span>
+        <span class="fireworks-launcher-text">烟花</span>
+    </button>
+
+    <!-- 阶段四：3D 粒子蛋糕 -->
+    <div id="stage-4" class="stage" style="padding:0; margin:0; position:fixed; top:0; left:0; width:100%; height:100%; display:none;">
+        <canvas id="cake-canvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index: 1;"></canvas>
+        <div class="cosmic-copy">
+            <div class="cosmic-kicker">STAR CAKE MODE</div>
+        </div>
+        <div id="mic-hint" style="position:absolute; top:8%; width:100%; text-align:center; color:white; font-size:1.5rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); z-index: 2; pointer-events: none; opacity: 0; transition: opacity 1s;">
+            试试吹一吹蜡烛吧～✨
+        </div>
+        <div id="wish-text" style="position:absolute; top:85%; width:100%; text-align:center; color:#ff9a9e; font-size:2.5rem; text-shadow: 2px 2px 10px white; z-index: 2; pointer-events: none; opacity: 0; transform: translateY(20px); transition: all 2s;">
+            生日快乐！愿望一定会实现！✨
+        </div>
+    </div>
+
+    <!-- 搞怪页面 -->
+    <div id="stage-prank" class="stage" style="padding:0; margin:0; position:fixed; top:0; left:0; width:100%; height:100%; display:none;">
+        <div class="prank-scene">
+            <div class="prank-bad-elements">
+                <div class="prank-eye left"></div>
+                <div class="prank-eye right"></div>
+                <div class="prank-chip" style="left: 11%; top: 22%; --delay: 0s;">坏笑加载中</div>
+                <div class="prank-chip" style="right: 12%; top: 28%; --delay: -1.7s;">别急，先逗你一下</div>
+                <div class="prank-chip" style="left: 14%; bottom: 16%; --delay: -3.2s;">按钮偷偷得意</div>
+                <div class="prank-chip" style="right: 16%; bottom: 18%; --delay: -2.4s;">惊喜还没放出来</div>
+                <div class="prank-spark s1"></div>
+                <div class="prank-spark s2"></div>
+                <div class="prank-spark s3"></div>
+                <div class="prank-spark s4"></div>
+            </div>
+            <div class="prank-card">
+                <div class="prank-overline">Mischief Mode</div>
+                <h1 id="prank-text"></h1>
+                <p id="prank-subtext" class="prank-subtext"></p>
+                <div class="prank-return">点一下屏幕，回去继续戳那个不太老实的按钮。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入彩纸特效库 -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        // 音乐控制逻辑
+        const bgm = document.getElementById('bgm');
+        const musicBtn = document.getElementById('musicBtn');
+        const fxCanvas = document.getElementById('fx-canvas');
+        const fxCtx = fxCanvas.getContext('2d');
+        const stage3 = document.getElementById('stage-3');
+        const stage4 = document.getElementById('stage-4');
+        const stagePrank = document.getElementById('stage-prank');
+        const prankText = document.getElementById('prank-text');
+        const prankSubtext = document.getElementById('prank-subtext');
+        const cakeBtnText = document.getElementById('cake-btn-text');
+        const fireworksLauncher = document.getElementById('fireworks-launcher');
+        const micHint = document.getElementById('mic-hint');
+        const wishText = document.getElementById('wish-text');
+        let isMusicPlaying = false;
+        let isFirstInteraction = true;
+
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                bgm.pause();
+                musicBtn.classList.remove('playing');
+                musicBtn.setAttribute('style', 'position: fixed; top: 10px; right: 10px !important; left: auto !important; display: flex; justify-content: center; align-items: center;');
+                musicBtn.innerText = '🔇';
+            } else {
+                bgm.volume = 0.4;
+                // 立即添加旋转动画，不管音频是否成功
+                musicBtn.classList.add('playing');
+                musicBtn.setAttribute('style', 'position: fixed; top: 10px; right: 10px !important; left: auto !important; display: flex; justify-content: center; align-items: center; animation: recordSpin 3s linear infinite;');
+                musicBtn.innerText = '🎵';
+                
+                bgm.play().catch(e => console.log('Audio error:', e));
+            }
+            isMusicPlaying = !isMusicPlaying;
+        }
+
+        // 全局交互监听，首次点击自动播放音乐
+        document.body.addEventListener('click', () => {
+            if (isFirstInteraction && !isMusicPlaying) {
+                toggleMusic();
+                isFirstInteraction = false;
+            }
+        });
+
+        // 生成萤火虫背景
+        function createFireflies() {
+            const container = document.getElementById('fireflies');
+            for(let i=0; i<15; i++) {
+                let fly = document.createElement('div');
+                fly.className = 'firefly';
+                fly.style.left = Math.random() * 100 + 'vw';
+                fly.style.top = Math.random() * 100 + 'vh';
+                fly.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                fly.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(fly);
+            }
+        }
+        let trailParticles = [];
+
+        createFireflies();
+        createSummerElements();
+        animateTrail();
+
+        // 阶段一：泡泡逻辑
+        let poppedCount = 0;
+        const totalBubbles = 6;
+        
+        // 全局可调用的点击函数
+        window.popBubble = function(bubbleElement, event) {
+            // 仅仅做最简单的防冒泡，不拦截任何其他默认行为
+            if (event) {
+                event.stopPropagation();
+            }
+            
+            if(bubbleElement.classList.contains('popped')) return;
+            
+            // 获取对应的字
+            const wrapper = bubbleElement.parentElement;
+            const word = wrapper.querySelector('.bubble-word');
+            
+            // 执行动画
+            bubbleElement.classList.add('popped');
+            if (word) {
+                word.classList.add('show');
+            }
+            poppedCount++;
+
+            // 获取坐标（以最简单安全的方式）
+            let clientX = window.innerWidth / 2;
+            let clientY = window.innerHeight / 2;
+            
+            if (event && event.clientX !== undefined) {
+                clientX = event.clientX;
+                clientY = event.clientY;
+            }
+
+            // 简单的微小五彩纸屑
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 15,
+                    spread: 40,
+                    origin: { 
+                        x: clientX / window.innerWidth,
+                        y: clientY / window.innerHeight
+                    },
+                    colors: ['#ffb6c1', '#a0e7e5', '#ffd166']
+                });
+            }
+
+            // 全部戳破后进入下一阶段
+            if (poppedCount === totalBubbles) {
+                setTimeout(() => {
+                    document.getElementById('stage-1').classList.remove('active');
+                    document.getElementById('stage-2').classList.add('active');
+                }, 1500);
+            }
+        };
+
+        document.querySelectorAll('#stage-1 .bubble').forEach((bubbleElement) => {
+            bubbleElement.addEventListener('click', (event) => {
+                window.popBubble(bubbleElement, event);
+            });
+        });
+
+        // 生成夏天元素
+        const bubbleContainer = document.getElementById('bubbles');
+        if (bubbleContainer) {
+            bubbleContainer.addEventListener('pointerup', (event) => {
+                const bubbleElement = event.target.closest('.bubble');
+                if (bubbleElement) {
+                    window.popBubble(bubbleElement, event);
+                }
+            });
+        }
+
+        function createSummerElements() {
+            // 生成气泡 (减少数量以提高性能)
+            for(let i=0; i<6; i++) {
+                createBubble();
+            }
+            
+            // 生成阳光光斑
+            for(let i=0; i<2; i++) {
+                createSunSpot();
+            }
+            
+            // 生成小花
+            for(let i=0; i<3; i++) {
+                createFlower();
+            }
+            
+            // 生成云朵
+            for(let i=0; i<2; i++) {
+                createCloud();
+            }
+            
+            // 生成蝴蝶
+            for(let i=0; i<2; i++) {
+                createButterfly();
+            }
+        }
+
+        // 鼠标拖尾效果
+        function createTrailParticle(x, y) {
+            const colors = ['#ffb6c1', '#a0e7e5', '#ffd166', '#b19cd9', '#ffffff'];
+            trailParticles.push({
+                x, y,
+                vx: (Math.random() - 0.5) * 2,
+                vy: (Math.random() - 0.5) * 2,
+                size: Math.random() * 2 + 1, // 减小粒子大小
+                color: colors[Math.floor(Math.random() * colors.length)],
+                opacity: Math.random() * 0.6 + 0.2, // 减少不透明度
+                life: 1.0
+            });
+        }
+
+        function animateTrail() {
+            requestAnimationFrame(animateTrail);
+            
+            // 限制粒子数量
+            if(trailParticles.length > 50) {
+                trailParticles = trailParticles.slice(-50);
+            }
+            
+            trailParticles = trailParticles.filter(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.life -= 0.03; // 加快消失速度
+                p.opacity = p.life;
+                
+                return p.life > 0;
+            });
+        }
+
+        // 点击效果
+        function createClickEffect(x, y) {
+            const effects = ['💖', '✨', '🌟', '🌸', '🎈'];
+            for(let i=0; i<8; i++) {
+                const effect = document.createElement('div');
+                effect.style.position = 'fixed';
+                effect.style.left = x + 'px';
+                effect.style.top = y + 'px';
+                effect.style.fontSize = (Math.random() * 20 + 16) + 'px';
+                effect.style.pointerEvents = 'none';
+                effect.style.zIndex = '9999';
+                effect.textContent = effects[Math.floor(Math.random() * effects.length)];
+                effect.style.animation = 'clickEffect 1s ease-out forwards';
+                document.body.appendChild(effect);
+                
+                setTimeout(() => {
+                    effect.remove();
+                }, 1000);
+            }
+        }
+
+        // 鼠标移动事件
+        document.addEventListener('mousemove', (e) => {
+            if(Math.random() > 0.7) {
+                createTrailParticle(e.clientX, e.clientY);
+            }
+        });
+
+        // 点击事件
+        document.addEventListener('click', (e) => {
+            createClickEffect(e.clientX, e.clientY);
+        });
+
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.className = 'summer-bubble';
+            const size = Math.random() * 30 + 10;
+            bubble.style.width = size + 'px';
+            bubble.style.height = size + 'px';
+            bubble.style.left = Math.random() * 100 + 'vw';
+            bubble.style.animationDuration = (Math.random() - 0.5) * 3 + 4 + 's';
+            bubble.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(bubble);
+            
+            // 自动移除
+            setTimeout(() => {
+                bubble.remove();
+            }, 10000);
+        }
+
+        function createSunSpot() {
+            const spot = document.createElement('div');
+            spot.className = 'sun-spot';
+            const size = Math.random() * 80 + 40;
+            spot.style.width = size + 'px';
+            spot.style.height = size + 'px';
+            spot.style.left = Math.random() * 100 + 'vw';
+            spot.style.top = Math.random() * 50 + 'vh';
+            spot.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            spot.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(spot);
+        }
+
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            const flowers = ['🌻', '🌸', '🌼', '🌷', '💐'];
+            flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.top = Math.random() * 100 + 'vh';
+            flower.style.animationDuration = (Math.random() * 4 + 8) + 's';
+            flower.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(flower);
+        }
+
+        function createCloud() {
+            const cloud = document.createElement('div');
+            cloud.className = 'cloud';
+            cloud.textContent = '☁️';
+            cloud.style.left = -100 + 'px';
+            cloud.style.top = Math.random() * 30 + 'vh';
+            cloud.style.animationDuration = (Math.random() * 10 + 20) + 's';
+            cloud.style.animationDelay = Math.random() * 10 + 's';
+            document.body.appendChild(cloud);
+        }
+
+        function createButterfly() {
+            const butterfly = document.createElement('div');
+            butterfly.className = 'butterfly';
+            butterfly.textContent = '🦋';
+            butterfly.style.left = Math.random() * 100 + 'vw';
+            butterfly.style.top = Math.random() * 100 + 'vh';
+            butterfly.style.animationDuration = (Math.random() * 4 + 10) + 's';
+            butterfly.style.animationDelay = Math.random() * 8 + 's';
+            document.body.appendChild(butterfly);
+        }
+
+        // 贺卡页烟花
+        let fireworkRockets = [];
+        let fireworkParticles = [];
+        let fireworkBursts = [];
+        let fireworkSoundContext = null;
+        let effectsLoopStarted = false;
+
+        resizeEffectsCanvas();
+        startEffectsLoop();
+        window.addEventListener('resize', handleViewportResize);
+
+        function handleViewportResize() {
+            resizeEffectsCanvas();
+            if (canvas) {
+                resizeCakeCanvas();
+            }
+        }
+
+        function setFireworksLauncherVisible(visible) {
+            fireworksLauncher.classList.toggle('visible', visible);
+        }
+
+        function wrapCoordinate(value, max) {
+            if (value < 0) {
+                return ((value % max) + max) % max;
+            }
+            if (value > max) {
+                return value % max;
+            }
+            return value;
+        }
+
+        function resizeEffectsCanvas() {
+            const dpr = window.devicePixelRatio || 1;
+            fxCanvas.width = Math.floor(window.innerWidth * dpr);
+            fxCanvas.height = Math.floor(window.innerHeight * dpr);
+            fxCanvas.style.width = window.innerWidth + 'px';
+            fxCanvas.style.height = window.innerHeight + 'px';
+            fxCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function startEffectsLoop() {
+            if (effectsLoopStarted) return;
+            effectsLoopStarted = true;
+            requestAnimationFrame(animateEffects);
+        }
+
+        function animateEffects() {
+            requestAnimationFrame(animateEffects);
+            const now = performance.now() * 0.01;
+
+            fxCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            fxCtx.save();
+            fxCtx.globalCompositeOperation = 'lighter';
+
+            fireworkBursts = fireworkBursts.filter((burst) => {
+                burst.radius += burst.expand;
+                burst.life -= burst.fade;
+
+                if (burst.life <= 0) {
+                    return false;
+                }
+
+                fxCtx.globalAlpha = burst.life * 0.35;
+                fxCtx.strokeStyle = burst.color;
+                fxCtx.lineWidth = 2.2;
+                fxCtx.beginPath();
+                fxCtx.arc(burst.x, burst.y, burst.radius, 0, Math.PI * 2);
+                fxCtx.stroke();
+
+                const halo = fxCtx.createRadialGradient(burst.x, burst.y, 0, burst.x, burst.y, burst.radius * 1.45);
+                halo.addColorStop(0, burst.coreColor);
+                halo.addColorStop(0.2, burst.color);
+                halo.addColorStop(1, 'rgba(0,0,0,0)');
+                fxCtx.globalAlpha = burst.life * 0.12;
+                fxCtx.fillStyle = halo;
+                fxCtx.beginPath();
+                fxCtx.arc(burst.x, burst.y, burst.radius * 1.45, 0, Math.PI * 2);
+                fxCtx.fill();
+                return true;
+            });
+
+            fireworkRockets = fireworkRockets.filter((rocket) => {
+                rocket.x += rocket.vx;
+                rocket.y += rocket.vy;
+                rocket.vy += rocket.gravity;
+                rocket.trail.push({ x: rocket.x, y: rocket.y });
+                if (rocket.trail.length > 18) {
+                    rocket.trail.shift();
+                }
+
+                if (rocket.y <= rocket.targetY || rocket.vy >= -1.15) {
+                    explodeFirework(rocket);
+                    return false;
+                }
+
+                const trailStart = rocket.trail[0];
+                const trailGradient = fxCtx.createLinearGradient(trailStart.x, trailStart.y, rocket.x, rocket.y);
+                trailGradient.addColorStop(0, 'rgba(255,255,255,0)');
+                trailGradient.addColorStop(0.45, rocket.trailColor);
+                trailGradient.addColorStop(1, rocket.coreColor);
+                fxCtx.strokeStyle = trailGradient;
+                fxCtx.lineWidth = rocket.trailWidth;
+                fxCtx.lineCap = 'round';
+                fxCtx.beginPath();
+                fxCtx.moveTo(trailStart.x, trailStart.y);
+                rocket.trail.forEach((point) => fxCtx.lineTo(point.x, point.y));
+                fxCtx.globalAlpha = 0.88;
+                fxCtx.stroke();
+
+                const halo = fxCtx.createRadialGradient(rocket.x, rocket.y, 0, rocket.x, rocket.y, 18);
+                halo.addColorStop(0, rocket.coreColor);
+                halo.addColorStop(1, 'rgba(0,0,0,0)');
+                fxCtx.globalAlpha = 0.35;
+                fxCtx.fillStyle = halo;
+                fxCtx.beginPath();
+                fxCtx.arc(rocket.x, rocket.y, 18, 0, Math.PI * 2);
+                fxCtx.fill();
+
+                fxCtx.globalAlpha = 1;
+                fxCtx.fillStyle = rocket.coreColor;
+                fxCtx.beginPath();
+                fxCtx.arc(rocket.x, rocket.y, 3.2, 0, Math.PI * 2);
+                fxCtx.fill();
+                return true;
+            });
+
+            fireworkParticles = fireworkParticles.filter((particle) => {
+                particle.prevX = particle.x;
+                particle.prevY = particle.y;
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                particle.vy += particle.gravity;
+                particle.vx *= particle.drag;
+                particle.vy *= particle.airResistance;
+                particle.life -= particle.fade;
+                particle.size *= particle.shrink;
+
+                if (particle.life <= 0 || particle.size <= 0.3) {
+                    return false;
+                }
+
+                const alpha = Math.max(0, particle.life * (0.72 + Math.sin(now * particle.twinkle + particle.sparkleOffset) * 0.28));
+                fxCtx.globalAlpha = alpha * particle.trailAlpha;
+                fxCtx.strokeStyle = particle.color;
+                fxCtx.lineWidth = Math.max(1, particle.size * 0.9);
+                fxCtx.beginPath();
+                fxCtx.moveTo(particle.prevX, particle.prevY);
+                fxCtx.lineTo(particle.x, particle.y);
+                fxCtx.stroke();
+
+                fxCtx.globalAlpha = alpha;
+                const glow = fxCtx.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, particle.size + particle.glow);
+                glow.addColorStop(0, particle.coreColor);
+                glow.addColorStop(0.45, particle.color);
+                glow.addColorStop(1, 'rgba(0,0,0,0)');
+                fxCtx.fillStyle = glow;
+                fxCtx.beginPath();
+                fxCtx.arc(particle.x, particle.y, particle.size + particle.glow, 0, Math.PI * 2);
+                fxCtx.fill();
+
+                fxCtx.fillStyle = particle.coreColor;
+                fxCtx.beginPath();
+                fxCtx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                fxCtx.fill();
+                return true;
+            });
+
+            fxCtx.restore();
+        }
+
+        function ensureFireworkSoundContext() {
+            const Context = window.AudioContext || window.webkitAudioContext;
+            if (!Context) return null;
+            if (!fireworkSoundContext) {
+                fireworkSoundContext = new Context();
+            }
+            if (fireworkSoundContext.state === 'suspended') {
+                fireworkSoundContext.resume();
+            }
+            return fireworkSoundContext;
+        }
+
+        function playFireworkLaunchSound() {
+            const context = ensureFireworkSoundContext();
+            if (!context) return;
+
+            const now = context.currentTime;
+            const oscillator = context.createOscillator();
+            const shimmer = context.createOscillator();
+            const gain = context.createGain();
+
+            oscillator.type = 'triangle';
+            oscillator.frequency.setValueAtTime(150, now);
+            oscillator.frequency.exponentialRampToValueAtTime(520, now + 0.2);
+
+            shimmer.type = 'sine';
+            shimmer.frequency.setValueAtTime(760, now);
+            shimmer.frequency.exponentialRampToValueAtTime(410, now + 0.16);
+
+            gain.gain.setValueAtTime(0.0001, now);
+            gain.gain.exponentialRampToValueAtTime(0.03, now + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
+
+            oscillator.connect(gain);
+            shimmer.connect(gain);
+            gain.connect(context.destination);
+            oscillator.start(now);
+            shimmer.start(now);
+            oscillator.stop(now + 0.26);
+            shimmer.stop(now + 0.18);
+        }
+
+        function playFireworkBurstSound(baseFreq) {
+            const context = ensureFireworkSoundContext();
+            if (!context) return;
+
+            [0.85, 1, 1.18].forEach((ratio, index) => {
+                const now = context.currentTime + index * 0.012;
+                const oscillator = context.createOscillator();
+                const gain = context.createGain();
+
+                oscillator.type = index === 0 ? 'triangle' : 'sine';
+                oscillator.frequency.setValueAtTime(baseFreq * ratio, now);
+                oscillator.frequency.exponentialRampToValueAtTime(70 * ratio, now + 0.42);
+                gain.gain.setValueAtTime(0.0001, now);
+                gain.gain.exponentialRampToValueAtTime(0.055 / (index + 1), now + 0.012);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+
+                oscillator.connect(gain);
+                gain.connect(context.destination);
+                oscillator.start(now);
+                oscillator.stop(now + 0.46);
+            });
+        }
+
+        function spawnFirework() {
+            const palette = [
+                { shell: '#ff7aa8', trail: 'rgba(255, 122, 168, 0.85)', core: '#fff4fb' },
+                { shell: '#ffd166', trail: 'rgba(255, 209, 102, 0.85)', core: '#fff8dc' },
+                { shell: '#6ee7ff', trail: 'rgba(110, 231, 255, 0.85)', core: '#f0fdff' },
+                { shell: '#b388ff', trail: 'rgba(179, 136, 255, 0.85)', core: '#f6f0ff' }
+            ];
+            const paletteEntry = palette[Math.floor(Math.random() * palette.length)];
+            const styles = ['peony', 'ring', 'willow'];
+            const launchX = window.innerWidth * (0.12 + Math.random() * 0.76);
+            const targetX = window.innerWidth * (0.18 + Math.random() * 0.64);
+            const targetY = window.innerHeight * (0.14 + Math.random() * 0.3);
+
+            fireworkRockets.push({
+                x: launchX,
+                y: window.innerHeight + 26,
+                vx: (targetX - launchX) / 44,
+                vy: -(12.8 + Math.random() * 2.6),
+                gravity: 0.038,
+                targetY,
+                color: paletteEntry.shell,
+                trailColor: paletteEntry.trail,
+                coreColor: paletteEntry.core,
+                style: styles[Math.floor(Math.random() * styles.length)],
+                trailWidth: 1.8 + Math.random() * 1.2,
+                trail: [{ x: launchX, y: window.innerHeight + 26 }]
+            });
+            playFireworkLaunchSound();
+        }
+
+        function explodeFirework(rocket) {
+            const palette = [rocket.color, rocket.coreColor, '#fff1f7', '#9bf6ff', '#ffe89a'];
+            const style = rocket.style;
+            const burstCount = style === 'ring'
+                ? 88 + Math.floor(Math.random() * 18)
+                : (style === 'willow' ? 96 + Math.floor(Math.random() * 18) : 74 + Math.floor(Math.random() * 22));
+
+            fireworkBursts.push({
+                x: rocket.x,
+                y: rocket.y,
+                radius: 12,
+                expand: 3.5 + Math.random() * 1.2,
+                fade: 0.035,
+                life: 1,
+                color: rocket.color,
+                coreColor: rocket.coreColor
+            });
+
+            for (let i = 0; i < burstCount; i++) {
+                const angle = style === 'ring'
+                    ? (Math.PI * 2 * i) / burstCount + (Math.random() - 0.5) * 0.05
+                    : Math.random() * Math.PI * 2;
+                const speedBase = style === 'willow' ? 1.9 : 2.5;
+                const speedRange = style === 'ring' ? 1.8 : 2.7;
+                const speed = speedBase + Math.random() * speedRange;
+                const lift = style === 'willow' ? 0.45 : 1;
+                const color = palette[Math.floor(Math.random() * palette.length)];
+                fireworkParticles.push({
+                    x: rocket.x,
+                    y: rocket.y,
+                    prevX: rocket.x,
+                    prevY: rocket.y,
+                    vx: Math.cos(angle) * speed + (Math.random() - 0.5) * 0.2,
+                    vy: Math.sin(angle) * speed * lift + (Math.random() - 0.5) * 0.2,
+                    gravity: style === 'willow' ? 0.068 + Math.random() * 0.018 : 0.032 + Math.random() * 0.018,
+                    drag: style === 'willow' ? 0.978 : 0.987,
+                    airResistance: style === 'willow' ? 0.996 : 1,
+                    life: 1,
+                    fade: style === 'willow' ? 0.010 + Math.random() * 0.006 : 0.013 + Math.random() * 0.01,
+                    size: 1.8 + Math.random() * 2.8,
+                    shrink: style === 'willow' ? 0.995 : 0.991,
+                    glow: style === 'ring' ? 8 : 6,
+                    trailAlpha: style === 'willow' ? 0.28 : 0.22,
+                    color,
+                    coreColor: Math.random() > 0.68 ? '#ffffff' : color,
+                    twinkle: 0.7 + Math.random() * 1.8,
+                    sparkleOffset: Math.random() * Math.PI * 2
+                });
+            }
+
+            for (let i = 0; i < 16; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 0.8 + Math.random() * 1.5;
+                fireworkParticles.push({
+                    x: rocket.x,
+                    y: rocket.y,
+                    prevX: rocket.x,
+                    prevY: rocket.y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    gravity: 0.02 + Math.random() * 0.012,
+                    drag: 0.989,
+                    airResistance: 1,
+                    life: 0.9,
+                    fade: 0.028 + Math.random() * 0.014,
+                    size: 1 + Math.random() * 1.6,
+                    shrink: 0.988,
+                    glow: 4,
+                    trailAlpha: 0.14,
+                    color: '#ffffff',
+                    coreColor: '#ffffff',
+                    twinkle: 1.5 + Math.random() * 2.2,
+                    sparkleOffset: Math.random() * Math.PI * 2
+                });
+            }
+
+            playFireworkBurstSound(140 + Math.random() * 70);
+        }
+
+        function launchBirthdayFireworks(event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            if (!stage3.classList.contains('active')) {
+                return;
+            }
+
+            const count = 2 + Math.floor(Math.random() * 2);
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    spawnFirework();
+                }, i * 260);
+            }
+        }
+
+        // 三次点击搞怪逻辑
+        const prankScenes = [
+            {
+                title: '明明写着别点，你怎么还越点越认真',
+                subtitle: '这个按钮现在已经有一点小得意了。点一下屏幕，我就装作没看见，放你回去继续试。',
+                returnLabel: '还想再试？它现在正偷偷冲你坏笑'
+            },
+            {
+                title: '第二次还来，按钮都快被你拿捏住了',
+                subtitle: '行吧，我承认后面真的藏了惊喜。你再点一次，我就把宇宙蛋糕交给你。',
+                returnLabel: '最后一次，真的带你去看惊喜 ✨'
+            }
+        ];
+        let cakeButtonClickCount = 0;
+        let activePrankScene = -1;
+
+        function showPrankScene(index) {
+            const scene = prankScenes[index];
+
+            activePrankScene = index;
+            prankText.textContent = scene.title;
+            prankSubtext.textContent = scene.subtitle;
+            setFireworksLauncherVisible(false);
+            stage3.classList.remove('active');
+            stagePrank.style.display = 'flex';
+            stagePrank.classList.add('active');
+        }
+
+        stagePrank.addEventListener('click', () => {
+            if (activePrankScene === -1) return;
+
+            stagePrank.classList.remove('active');
+            stagePrank.style.display = 'none';
+            stage3.classList.add('active');
+            setFireworksLauncherVisible(true);
+            cakeBtnText.textContent = prankScenes[activePrankScene].returnLabel;
+            activePrankScene = -1;
+        });
+
+        function handleCakeButtonClick(event) {
+            if (event) {
+                event.stopPropagation();
+            }
+
+            cakeButtonClickCount++;
+            if (cakeButtonClickCount <= prankScenes.length) {
+                showPrankScene(cakeButtonClickCount - 1);
+                return;
+            }
+
+            enterCakeStage();
+        }
+
+        // 阶段四：宇宙粒子蛋糕逻辑
+        let canvas = null;
+        let ctx = null;
+        let starPoints = [];
+        let cakePoints = [];
+        let candlePoints = [];
+        let candleAnchors = [];
+        let emberParticles = [];
+        let isCakeStage = false;
+        let isCandleLit = true;
+        let fallbackTapToBlow = false;
+        let audioContext, analyser, microphone, dataArray;
+        let cakeAnimationStarted = false;
+        let cakeCanvasBound = false;
+        let cakeRotationX = -0.28;
+        let cakeRotationY = 0.72;
+        let cakeTargetRotationX = -0.28;
+        let cakeTargetRotationY = 0.72;
+        let spaceOffsetX = 0;
+        let spaceOffsetY = 0;
+        let spaceTargetOffsetX = 0;
+        let spaceTargetOffsetY = 0;
+        let spaceDragEnergy = 0;
+        const cakeDrag = { active: false, moved: false, pointerId: null, lastX: 0, lastY: 0 };
+
+        function enterCakeStage() {
+            stage3.classList.remove('active');
+            setFireworksLauncherVisible(false);
+            stage4.style.display = 'flex';
+            stage4.classList.add('active');
+            isCakeStage = true;
+            isCandleLit = true;
+            fallbackTapToBlow = false;
+            micHint.style.opacity = '0';
+            micHint.textContent = '试试吹一吹蜡烛吧～✨';
+            wishText.style.opacity = '0';
+            wishText.style.transform = 'translateY(20px)';
+            spaceOffsetX = 0;
+            spaceOffsetY = 0;
+            spaceTargetOffsetX = 0;
+            spaceTargetOffsetY = 0;
+            spaceDragEnergy = 0;
+
+            initCakeCanvas();
+            if (!cakeAnimationStarted) {
+                cakeAnimationStarted = true;
+                requestAnimationFrame(animateCake);
+            }
+
+            setTimeout(() => {
+                if (!isCakeStage || !isCandleLit) return;
+                micHint.style.opacity = '1';
+                requestMicrophone();
+            }, 900);
+        }
+
+        function initCakeCanvas() {
+            canvas = document.getElementById('cake-canvas');
+            if (!ctx) {
+                ctx = canvas.getContext('2d');
+            }
+
+            resizeCakeCanvas();
+            createStarField();
+            buildCosmicCake();
+            bindCakeCanvasInteractions();
+        }
+
+        function resizeCakeCanvas() {
+            if (!canvas || !ctx) return;
+
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = Math.floor(window.innerWidth * dpr);
+            canvas.height = Math.floor(window.innerHeight * dpr);
+            canvas.style.width = window.innerWidth + 'px';
+            canvas.style.height = window.innerHeight + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function createStarField() {
+            starPoints = [];
+            for (let i = 0; i < 460; i++) {
+                starPoints.push({
+                    x: Math.random() * 2 - 1,
+                    y: Math.random() * 2 - 1,
+                    depth: Math.random(),
+                    size: 0.5 + Math.random() * 2.6,
+                    twinkle: Math.random() * Math.PI * 2,
+                    speed: 0.45 + Math.random() * 1.7,
+                    drift: 6 + Math.random() * 24,
+                    orbit: (Math.random() - 0.5) * 0.06,
+                    color: Math.random() > 0.72 ? '#9bd2ff' : (Math.random() > 0.44 ? '#ffffff' : '#ffe6a7')
+                });
+            }
+        }
+
+        function buildCosmicCake() {
+            cakePoints = [];
+            candlePoints = [];
+            candleAnchors = [];
+            emberParticles = [];
+
+            pushCakeLayer(170, 58, 92, 760, ['#ff5e8a', '#ff8fab', '#ffd166', '#ff8ec7']);
+            pushCakeLayer(128, 48, 20, 560, ['#f9a8d4', '#ffd3e2', '#9bf6ff', '#87d9ff']);
+            pushCakeLayer(92, 40, -46, 380, ['#c084fc', '#8be9ff', '#fff1f7', '#c7b7ff']);
+
+            pushFrostingRing(176, 64, 220, ['#ffe8f3', '#fff7d6', '#c7f9ff']);
+            pushFrostingRing(132, -6, 180, ['#ffe5f0', '#fff6d4', '#b8f4ff']);
+            pushFrostingRing(94, -66, 140, ['#fff4fb', '#dff9ff', '#ffe8a3']);
+            pushSprinkles(88, -76, 160);
+
+            [
+                { x: -48, z: -8, color: '#ffe08a' },
+                { x: 0, z: 14, color: '#ffd1dc' },
+                { x: 48, z: -12, color: '#b8f4ff' }
+            ].forEach((seed, index) => {
+                const topY = -122 - index * 2;
+                candleAnchors.push({ x: seed.x, y: topY, z: seed.z });
+                for (let i = 0; i < 68; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const radius = Math.random() * 6;
+                    const y = -70 - Math.random() * 48;
+                    candlePoints.push({
+                        x: seed.x + Math.cos(angle) * radius,
+                        y,
+                        z: seed.z + Math.sin(angle) * radius,
+                        size: 1 + Math.random() * 1.3,
+                        color: i % 3 === 0 ? '#fff7d6' : seed.color,
+                        alpha: 0.65 + Math.random() * 0.25
+                    });
+                }
+            });
+
+            cakeRotationX = -0.28;
+            cakeRotationY = 0.72;
+            cakeTargetRotationX = -0.28;
+            cakeTargetRotationY = 0.72;
+        }
+
+        function pushCakeLayer(radius, height, centerY, count, palette) {
+            for (let i = 0; i < count; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const r = Math.sqrt(Math.random()) * radius;
+                cakePoints.push({
+                    x: Math.cos(angle) * r,
+                    y: centerY + (Math.random() - 0.5) * height,
+                    z: Math.sin(angle) * (r * 0.92),
+                    size: 1 + Math.random() * 2.3,
+                    color: palette[Math.floor(Math.random() * palette.length)],
+                    alpha: 0.45 + Math.random() * 0.42
+                });
+            }
+        }
+
+        function pushFrostingRing(radius, y, count, palette) {
+            for (let i = 0; i < count; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const ringRadius = radius + (Math.random() - 0.5) * 12;
+                cakePoints.push({
+                    x: Math.cos(angle) * ringRadius,
+                    y: y + (Math.random() - 0.5) * 10,
+                    z: Math.sin(angle) * ringRadius * 0.9,
+                    size: 1.4 + Math.random() * 2.2,
+                    color: palette[Math.floor(Math.random() * palette.length)],
+                    alpha: 0.55 + Math.random() * 0.35
+                });
+            }
+        }
+
+        function pushSprinkles(radius, y, count) {
+            const colors = ['#ff90b3', '#ffe066', '#7de2ff', '#ffffff', '#d0a3ff'];
+            for (let i = 0; i < count; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const r = Math.sqrt(Math.random()) * radius;
+                cakePoints.push({
+                    x: Math.cos(angle) * r,
+                    y: y + Math.random() * 10,
+                    z: Math.sin(angle) * r * 0.9,
+                    size: 1.1 + Math.random() * 2,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    alpha: 0.7 + Math.random() * 0.3
+                });
+            }
+        }
+
+        function bindCakeCanvasInteractions() {
+            if (cakeCanvasBound || !canvas) return;
+            cakeCanvasBound = true;
+
+            canvas.addEventListener('pointerdown', (event) => {
+                if (!isCakeStage) return;
+                cakeDrag.active = true;
+                cakeDrag.moved = false;
+                cakeDrag.pointerId = event.pointerId;
+                cakeDrag.lastX = event.clientX;
+                cakeDrag.lastY = event.clientY;
+                canvas.classList.add('dragging');
+                if (canvas.setPointerCapture) {
+                    canvas.setPointerCapture(event.pointerId);
+                }
+            });
+
+            canvas.addEventListener('pointermove', (event) => {
+                if (!cakeDrag.active || event.pointerId !== cakeDrag.pointerId) return;
+
+                const dx = event.clientX - cakeDrag.lastX;
+                const dy = event.clientY - cakeDrag.lastY;
+                if (Math.abs(dx) + Math.abs(dy) > 3) {
+                    cakeDrag.moved = true;
+                }
+
+                cakeTargetRotationY += dx * 0.012;
+                cakeTargetRotationX += dy * 0.008;
+                cakeTargetRotationX = Math.max(-1.05, Math.min(0.55, cakeTargetRotationX));
+                spaceTargetOffsetX = Math.max(-180, Math.min(180, spaceTargetOffsetX - dx * 1.4));
+                spaceTargetOffsetY = Math.max(-150, Math.min(150, spaceTargetOffsetY - dy * 1.1));
+                spaceDragEnergy = Math.min(1.35, spaceDragEnergy + Math.min(0.14, (Math.abs(dx) + Math.abs(dy)) / 340));
+                cakeDrag.lastX = event.clientX;
+                cakeDrag.lastY = event.clientY;
+            });
+
+            const endDrag = (event) => {
+                if (!cakeDrag.active || event.pointerId !== cakeDrag.pointerId) return;
+                const tapped = fallbackTapToBlow && !cakeDrag.moved;
+
+                if (canvas.releasePointerCapture) {
+                    try {
+                        canvas.releasePointerCapture(event.pointerId);
+                    } catch (err) {
+                        console.log('pointer release skipped:', err);
+                    }
+                }
+
+                cakeDrag.active = false;
+                cakeDrag.pointerId = null;
+                canvas.classList.remove('dragging');
+
+                if (tapped && isCandleLit) {
+                    blowOutCandle();
+                }
+            };
+
+            canvas.addEventListener('pointerup', endDrag);
+            canvas.addEventListener('pointercancel', endDrag);
+        }
+
+        function rotatePoint(point, rotX, rotY) {
+            const cosY = Math.cos(rotY);
+            const sinY = Math.sin(rotY);
+            const cosX = Math.cos(rotX);
+            const sinX = Math.sin(rotX);
+
+            let x = point.x * cosY - point.z * sinY;
+            let z = point.x * sinY + point.z * cosY;
+            const y = point.y * cosX - z * sinX;
+            z = point.y * sinX + z * cosX;
+            return { x, y, z };
+        }
+
+        function projectPoint(point) {
+            const cameraDistance = 720;
+            const depth = cameraDistance - point.z;
+            if (depth < 80) return null;
+
+            const scale = cameraDistance / depth;
+            return {
+                x: window.innerWidth / 2 + point.x * scale,
+                y: window.innerHeight / 2 + point.y * scale,
+                scale,
+                depth
+            };
+        }
+
+        function animateCake(timestamp) {
+            requestAnimationFrame(animateCake);
+            if (!isCakeStage || !ctx || !canvas) return;
+
+            const time = timestamp * 0.001;
+            if (!cakeDrag.active) {
+                cakeTargetRotationY += 0.0035;
+                spaceTargetOffsetX *= 0.965;
+                spaceTargetOffsetY *= 0.965;
+            }
+
+            cakeRotationX += (cakeTargetRotationX - cakeRotationX) * 0.08;
+            cakeRotationY += (cakeTargetRotationY - cakeRotationY) * 0.08;
+            spaceOffsetX += (spaceTargetOffsetX - spaceOffsetX) * 0.08;
+            spaceOffsetY += (spaceTargetOffsetY - spaceOffsetY) * 0.08;
+            spaceDragEnergy *= 0.94;
+
+            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            drawSpaceBackdrop(time);
+            drawStarField(time);
+            drawCakeGlow();
+            drawCosmicCake(time);
+            updateAndDrawEmbers();
+
+            if (analyser && isCandleLit) {
+                checkBlow();
+            }
+        }
+
+        function drawSpaceBackdrop(time) {
+            const gradient = ctx.createLinearGradient(0, 0, 0, window.innerHeight);
+            gradient.addColorStop(0, '#02040d');
+            gradient.addColorStop(0.55, '#050814');
+            gradient.addColorStop(1, '#010208');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+
+            [
+                { x: window.innerWidth * 0.2 + Math.sin(time * 0.22) * 18 + spaceOffsetX * 0.24, y: window.innerHeight * 0.24 + spaceOffsetY * 0.12, radius: 220, color: 'rgba(83, 121, 255, 0.18)' },
+                { x: window.innerWidth * 0.78 + Math.cos(time * 0.28) * 22 + spaceOffsetX * 0.36, y: window.innerHeight * 0.18 - spaceOffsetY * 0.16, radius: 180, color: 'rgba(186, 86, 255, 0.16)' },
+                { x: window.innerWidth * 0.52 + spaceOffsetX * 0.2, y: window.innerHeight * 0.72 + Math.sin(time * 0.18) * 14 + spaceOffsetY * 0.24, radius: 250, color: 'rgba(26, 188, 255, 0.10)' }
+            ].forEach((nebula) => {
+                const glow = ctx.createRadialGradient(nebula.x, nebula.y, 0, nebula.x, nebula.y, nebula.radius);
+                glow.addColorStop(0, nebula.color);
+                glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+                ctx.fillStyle = glow;
+                ctx.beginPath();
+                ctx.arc(nebula.x, nebula.y, nebula.radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            const dustBand = ctx.createLinearGradient(0, window.innerHeight * 0.24, window.innerWidth, window.innerHeight * 0.82);
+            dustBand.addColorStop(0, 'rgba(72, 120, 255, 0)');
+            dustBand.addColorStop(0.48, 'rgba(90, 144, 255, 0.07)');
+            dustBand.addColorStop(0.52, 'rgba(176, 120, 255, 0.09)');
+            dustBand.addColorStop(1, 'rgba(72, 120, 255, 0)');
+            ctx.save();
+            ctx.translate(spaceOffsetX * 0.12, spaceOffsetY * 0.08);
+            ctx.rotate(-0.18 + spaceOffsetX * 0.0007);
+            ctx.fillStyle = dustBand;
+            ctx.fillRect(-120, window.innerHeight * 0.34, window.innerWidth + 240, 180);
+            ctx.restore();
+        }
+
+        function drawStarField(time) {
+            starPoints.forEach((star) => {
+                const parallax = 0.15 + star.depth * 1.3;
+                const x = wrapCoordinate(
+                    (star.x * 0.5 + 0.5) * window.innerWidth
+                    + spaceOffsetX * parallax
+                    + Math.sin(time * star.orbit + star.twinkle) * star.drift,
+                    window.innerWidth
+                );
+                const y = wrapCoordinate(
+                    (star.y * 0.5 + 0.5) * window.innerHeight
+                    + spaceOffsetY * (0.08 + star.depth * 0.9)
+                    + Math.cos(time * star.orbit + star.twinkle) * star.drift * 0.45,
+                    window.innerHeight
+                );
+                const twinkle = 0.35 + (Math.sin(time * star.speed + star.twinkle) + 1) * 0.35;
+                const size = star.size * (0.5 + star.depth * 0.8);
+                const stretch = 1 + spaceDragEnergy * (0.8 + star.depth * 2.8);
+                const angle = spaceDragEnergy > 0.02 ? Math.atan2(spaceOffsetY || 0.001, spaceOffsetX || 0.001) : 0;
+
+                ctx.globalAlpha = twinkle;
+                ctx.fillStyle = star.color;
+                ctx.beginPath();
+                ctx.ellipse(x, y, size * stretch, size, angle, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            ctx.globalAlpha = 1;
+        }
+
+        function drawCakeGlow() {
+            const glow = ctx.createRadialGradient(
+                window.innerWidth / 2,
+                window.innerHeight / 2 + 120,
+                10,
+                window.innerWidth / 2,
+                window.innerHeight / 2 + 120,
+                220
+            );
+            glow.addColorStop(0, 'rgba(255, 154, 215, 0.28)');
+            glow.addColorStop(0.55, 'rgba(140, 102, 255, 0.16)');
+            glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            ctx.fillStyle = glow;
+            ctx.beginPath();
+            ctx.ellipse(window.innerWidth / 2, window.innerHeight / 2 + 120, 240, 78, 0, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function drawCosmicCake(time) {
+            const allPoints = [];
+
+            cakePoints.forEach((point) => {
+                const rotated = rotatePoint(point, cakeRotationX, cakeRotationY);
+                const projected = projectPoint(rotated);
+                if (!projected) return;
+                allPoints.push({
+                    screenX: projected.x,
+                    screenY: projected.y,
+                    size: point.size * projected.scale,
+                    color: point.color,
+                    alpha: point.alpha,
+                    depth: rotated.z,
+                    glow: point.size > 2 ? 6 : 0
+                });
+            });
+
+            candlePoints.forEach((point) => {
+                const rotated = rotatePoint(point, cakeRotationX, cakeRotationY);
+                const projected = projectPoint(rotated);
+                if (!projected) return;
+                allPoints.push({
+                    screenX: projected.x,
+                    screenY: projected.y,
+                    size: point.size * projected.scale,
+                    color: point.color,
+                    alpha: point.alpha,
+                    depth: rotated.z,
+                    glow: 4
+                });
+            });
+
+            allPoints.sort((a, b) => a.depth - b.depth);
+            allPoints.forEach((point) => {
+                ctx.globalAlpha = point.alpha;
+                if (point.glow) {
+                    const halo = ctx.createRadialGradient(point.screenX, point.screenY, 0, point.screenX, point.screenY, point.size + point.glow);
+                    halo.addColorStop(0, point.color);
+                    halo.addColorStop(1, 'rgba(0,0,0,0)');
+                    ctx.fillStyle = halo;
+                    ctx.beginPath();
+                    ctx.arc(point.screenX, point.screenY, point.size + point.glow, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.fillStyle = point.color;
+                ctx.beginPath();
+                ctx.arc(point.screenX, point.screenY, point.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            if (isCandleLit) {
+                candleAnchors.forEach((anchor, index) => {
+                    const flameCenter = rotatePoint(anchor, cakeRotationX, cakeRotationY);
+                    const projected = projectPoint(flameCenter);
+                    if (!projected) return;
+
+                    const flicker = 1 + Math.sin(time * 8 + index * 1.7) * 0.18;
+                    const flameSize = 16 * projected.scale * flicker;
+
+                    const glow = ctx.createRadialGradient(projected.x, projected.y - flameSize * 0.45, 0, projected.x, projected.y, flameSize * 1.8);
+                    glow.addColorStop(0, 'rgba(255, 244, 163, 0.92)');
+                    glow.addColorStop(0.35, 'rgba(255, 168, 79, 0.7)');
+                    glow.addColorStop(1, 'rgba(255, 117, 24, 0)');
+                    ctx.globalAlpha = 0.9;
+                    ctx.fillStyle = glow;
+                    ctx.beginPath();
+                    ctx.arc(projected.x, projected.y, flameSize * 1.4, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.fillStyle = '#fffef5';
+                    ctx.beginPath();
+                    ctx.ellipse(projected.x, projected.y - flameSize * 0.35, flameSize * 0.28, flameSize * 0.6, 0, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.fillStyle = '#ffb347';
+                    ctx.beginPath();
+                    ctx.ellipse(projected.x, projected.y - flameSize * 0.05, flameSize * 0.4, flameSize * 0.85, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+            }
+
+            ctx.globalAlpha = 1;
+        }
+
+        function updateAndDrawEmbers() {
+            emberParticles = emberParticles.filter((particle) => {
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                particle.z += particle.vz;
+                particle.life -= particle.fade;
+                particle.vx *= particle.kind === 'smoke' ? 0.98 : 0.985;
+                particle.vy *= particle.kind === 'smoke' ? 0.98 : 0.99;
+                particle.vz *= 0.986;
+
+                if (particle.kind === 'ember') {
+                    particle.vy -= 0.002;
+                } else {
+                    particle.vy -= 0.0006;
+                }
+
+                if (particle.life <= 0) {
+                    return false;
+                }
+
+                const rotated = rotatePoint(particle, cakeRotationX, cakeRotationY);
+                const projected = projectPoint(rotated);
+                if (!projected) return true;
+
+                ctx.globalAlpha = particle.life * (particle.kind === 'smoke' ? 0.35 : 0.78);
+                ctx.fillStyle = particle.color;
+                ctx.beginPath();
+                ctx.arc(projected.x, projected.y, particle.size * projected.scale, 0, Math.PI * 2);
+                ctx.fill();
+                return true;
+            });
+
+            ctx.globalAlpha = 1;
+        }
+
+        // 麦克风吹蜡烛逻辑
+        async function requestMicrophone() {
+            try {
+                navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    setupAudioContext(stream);
+                } else if (navigator.getUserMedia) {
+                    navigator.getUserMedia({ audio: true }, setupAudioContext, handleError);
+                } else {
+                    throw new Error('当前浏览器不支持麦克风API');
+                }
+            } catch (err) {
+                handleError(err);
+            }
+        }
+
+        function setupAudioContext(stream) {
+            fallbackTapToBlow = false;
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = audioContext.createAnalyser();
+            microphone = audioContext.createMediaStreamSource(stream);
+            microphone.connect(analyser);
+            analyser.fftSize = 256;
+            dataArray = new Uint8Array(analyser.frequencyBinCount);
+        }
+
+        function handleError(err) {
+            console.log('麦克风权限被拒绝或不支持:', err);
+            fallbackTapToBlow = true;
+            micHint.innerHTML = '轻点一下星空也能吹灭蜡烛 🎂<br>拖动时不会误触发';
+            micHint.style.opacity = '1';
+        }
+
+        function checkBlow() {
+            if (!isCandleLit || !analyser) return;
+
+            analyser.getByteFrequencyData(dataArray);
+            let sum = 0;
+            for (let i = 0; i < dataArray.length; i++) {
+                sum += dataArray[i];
+            }
+
+            const average = sum / dataArray.length;
+            if (average > 78) {
+                blowOutCandle();
+            }
+        }
+
+        function blowOutCandle() {
+            if (!isCandleLit) return;
+
+            isCandleLit = false;
+            fallbackTapToBlow = false;
+            micHint.style.opacity = '0';
+
+            candleAnchors.forEach((anchor) => {
+                for (let i = 0; i < 18; i++) {
+                    emberParticles.push({
+                        kind: 'ember',
+                        x: anchor.x,
+                        y: anchor.y,
+                        z: anchor.z,
+                        vx: (Math.random() - 0.5) * 2.2,
+                        vy: -Math.random() * 1.8 - 0.4,
+                        vz: (Math.random() - 0.5) * 2.2,
+                        size: 1.4 + Math.random() * 1.8,
+                        color: Math.random() > 0.5 ? '#ffd166' : '#fff1f7',
+                        life: 1,
+                        fade: 0.018 + Math.random() * 0.016
+                    });
+                }
+
+                for (let i = 0; i < 12; i++) {
+                    emberParticles.push({
+                        kind: 'smoke',
+                        x: anchor.x,
+                        y: anchor.y,
+                        z: anchor.z,
+                        vx: (Math.random() - 0.5) * 1.1,
+                        vy: -Math.random() * 1.2 - 0.3,
+                        vz: (Math.random() - 0.5) * 1.1,
+                        size: 3.4 + Math.random() * 2.6,
+                        color: 'rgba(220, 228, 255, 0.85)',
+                        life: 0.82 + Math.random() * 0.24,
+                        fade: 0.01 + Math.random() * 0.012
+                    });
+                }
+            });
+
+            setTimeout(() => {
+                wishText.style.opacity = '1';
+                wishText.style.transform = 'translateY(0)';
+
+                confetti({
+                    particleCount: 120,
+                    spread: 80,
+                    origin: { y: 0.58 },
+                    colors: ['#ffd166', '#ff8fab', '#8be9ff', '#c084fc', '#ffffff']
+                });
+            }, 900);
+        }
+
+        // 阶段二：拆礼物逻辑
+        function openGift() { // <--- 关键：之前漏掉了这一行函数声明
+            // 华丽的五彩纸屑爆炸
+            const duration = 3000;
+            const end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#ffb6c1', '#a0e7e5', '#ffd166', '#b19cd9']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#ffb6c1', '#a0e7e5', '#ffd166', '#b19cd9']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+
+            // 切换到贺卡阶段
+            document.getElementById('stage-2').classList.remove('active');
+            stage3.classList.add('active');
+            setFireworksLauncherVisible(true);
+        }
+    </script>
+</body>
+</html>
